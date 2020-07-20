@@ -10,7 +10,7 @@ public class DriverMgr {
     static WebDriver driver;
 
     public static WebDriver getDriver() {
-        String browserNm = System.getProperty("browser") == null ? "chrome" : System.getProperty("browser");
+        String browserNm = System.getProperty("browser") == null ? "firefox" : System.getProperty("browser");
         if (driver == null) {
             initDriver();
         }
@@ -18,16 +18,16 @@ public class DriverMgr {
     }
 
     public static void initDriver() {
-        String browserNm = System.getProperty("browser") == null ? "chrome" : System.getProperty("browser");
+        String browserNm = System.getProperty("browser") == null ? "firefox" : System.getProperty("browser");
         switch (browserNm) {
-            case "chrome":{
-                WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
-            }
             case "firefox": {
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
             }
+//            case "chrome":{
+//                WebDriverManager.chromedriver().setup();
+//                driver = new ChromeDriver();
+//            }
         }
     }
 }
